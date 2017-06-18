@@ -1,32 +1,47 @@
 #include <stdio.h>
 #include <math.h>
-
-int main(){
-	int a,b,c;
-	int D,S;
-	int x1,x2;
-	
-	printf ("enter 3 number: ");
-	scanf ("%d%d%d\n",a,b,c);
-	
-	D=pow(b,2);
-	S=(4*a*c);
-	D=D-S;
-	
-	if(D>0){
-		x1=-b+sqrt(D);
-		x1/=2*a;
-		x2=-b-sqrt(D);
-		x2/=2*a;
-		printf("answer:\n x1= %d \n x2= %d",x1,x2);
-	}
-	if (D==0){
-		x1=-b;
-		x1/=2*a;
-		printf("answer:\n x1= %d",x1);
-	}
-	if (D<0){
-		printf ("answer: No roots");
-	}
-	return 0;
+main()
+{
+    float a,b,c;
+    printf("vvedite a, b, c: ");
+    scanf("%f %f %f", &a, &b, &c);
+    if(a == 0)
+    {
+        if(b == 0)
+        {
+            if(c == 0)
+            {
+                printf("x - lyboe 4islo");
+            }
+            else
+            {
+                printf("kornei net");
+            }
+        }
+        else
+        {
+            printf ("x = %g", -c/b);
+        }
+    }
+    else
+    {
+        float d, x1, x2;
+        d = b * b - 4 * a * c;
+        if(d < 0)
+        {
+            printf("kornei net");
+        }
+        else
+        {
+            if(d == 0)
+            {
+                printf("x= %g", -b/(2*a));
+            }
+            else
+            {
+                printf("x1= %g, x2= %g",(-b+sqrt(d))/(2*a),(-b-sqrt(d))/(2*a));
+            }
+        }
+    }
+    return 0;
 }
